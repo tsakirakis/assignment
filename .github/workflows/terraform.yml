@@ -1,0 +1,38 @@
+name: Terraform CI
+
+env:
+AWS_ACCESS_KEY_ID: ${{ secrets.AccessKey }}
+AWS_SECRET_ACCESS_KEY: ${{ secrets.SecretAccessKey }}
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  terraform:
+    name: 'Terraform Plan and Apply'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.0
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        run: terraform plan
+
+      # Uncomment below to enable auto-apply (not recommended for production)
+      # - name: Terraform Apply
+      #   run: terraform apply -auto-approve
