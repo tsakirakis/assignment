@@ -8,27 +8,30 @@ module "vpc" {
 
 module "mongodb" {
   source              = "./modules/mongodb"
-  ami_id              = "ami-0abcdef1234567890"
+  ami_id              = "ami-0416cbe3c21834f41"
   instance_type       = "t2.micro"
   subnet_id           = module.vpc.subnet_id
   security_group_id   = module.vpc.security_group_id
   tags                = { Environment = "dev", Project = "infra" }
+  vpc_id              = module.vpc.vpc_id
 }
 
 module "postgresql" {
   source              = "./modules/postgresql"
-  ami_id              = "ami-0abcdef1234567890"
+  ami_id              = "ami-0416cbe3c21834f41"
   instance_type       = "t2.micro"
   subnet_id           = module.vpc.subnet_id
   security_group_id   = module.vpc.security_group_id
   tags                = { Environment = "dev", Project = "infra" }
+  vpc_id              = module.vpc.vpc_id
 }
 
 module "elk" {
   source              = "./modules/elk"
-  ami_id              = "ami-0abcdef1234567890"
+  ami_id              = "ami-0416cbe3c21834f41"
   instance_type       = "t2.medium"
   subnet_id           = module.vpc.subnet_id
   security_group_id   = module.vpc.security_group_id
   tags                = { Environment = "dev", Project = "infra" }
+  vpc_id              = module.vpc.vpc_id
 }
