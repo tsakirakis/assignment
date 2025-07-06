@@ -1,8 +1,8 @@
 name: Terraform CI
 
 env:
-  aws-access-key-id: ${{ secrets.ACCESSKEY }}
-  aws-secret-access-key: ${{ secrets.SECRETACCESSKEY }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.ACCESSKEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRETACCESSKEY }}
 
 on:
   workflow_dispatch:
