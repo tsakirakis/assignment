@@ -27,4 +27,4 @@ jobs:
 
       # Uncomment below to enable auto-apply (not recommended for production)
       - name: Terraform Apply
-        run: terraform apply tfplan -auto-approve
+        run: terraform apply -auto-approve tfplan
