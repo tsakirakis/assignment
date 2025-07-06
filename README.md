@@ -4,7 +4,7 @@ I created the project under the folder assignment, a github workflow for the dep
 The workflow was tested successfully and respective infrastructure pieces were created on my AWS account.
 
 The project consists of
-main.tf //declaration of the moduleas along with fundamental attributes
+main.tf //declaration of the module along with fundamental attributes
 providers.tf // declaration of aws provider
 variables.tf // declaration of aws region
 Under modules folder:
