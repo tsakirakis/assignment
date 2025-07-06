@@ -23,13 +23,17 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: ./assignment
 
       - name: Terraform Validate
         run: terraform validate
+        working-directory: ./assignment
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan
+        working-directory: ./assignment
 
       # Uncomment below to enable auto-apply (not recommended for production)
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
+        working-directory: ./assignment
